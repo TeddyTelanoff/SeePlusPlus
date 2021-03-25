@@ -1,5 +1,6 @@
 #pragma once
 #include <sal.h>
+//#include <Windows.h> // NO!
 
 namespace Windows
 {
@@ -26,6 +27,7 @@ namespace Windows
 
 	using LParam = long *;
 	using WParam = uint *;
+	using Result = uint *;
 
 	using Atom = unsigned __int16;
 
@@ -46,13 +48,28 @@ namespace Windows
 		HIcon SmallIcon;
 	};
 
+	using Point = struct Point
+	{ long X, Y; };
+
+	using WinMessage = struct WinMessage
+	{
+		Window Win;
+		uint Msg;
+		WParam wParam;
+		LParam lParam;
+		DWord Time;
+		Point Point;
+		DWord Private;
+	};
+
 	constexpr std::nullptr_t null = 0;
 
 	extern Module Kernel32Lib;
 	extern Module User32Lib;
 
-	#include "Windows/WindowStyles.h"
-	#include "Windows/WindowsImp.h"
-
-	bool InitWindows();
+	_Return_type_success_(true) bool InitWindows();
 }
+
+#include "Windows/WindowStyles.h"
+#include "Windows/WindowNotifications.h"
+#include "Windows/WindowsImp.h"

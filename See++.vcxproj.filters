@@ -24,6 +24,9 @@
     <ClInclude Include="src\Windows\WindowStyles.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Windows\WindowNotifications.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Windows\Windows.cpp">

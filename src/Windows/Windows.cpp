@@ -1,5 +1,8 @@
 #include "Windows/Windows.h"
 
+#define ImportFunc(name, ret, ...) name##_t name
+#include "Windows/WindowsImp.h"
+
 namespace Windows
 {
 	namespace NATIVE
@@ -12,13 +15,10 @@ namespace Windows
 	Module Kernel32Lib;
 	Module User32Lib;
 
-	#define ImportFunc(name, ret, ...) name##_t name
-	#include "Windows/WindowsImp.h"
-
 	#define LoadLib(name) name##Lib = NATIVE::LoadLibraryW(L#name); if (name##Lib == null) { NATIVE::MessageBoxW(null, L"Cannot load library '" L#name L"'", L"See++ Error", 0x10); return false; }
 	#define LoadFunc(name, lib) name = (name##_t)NATIVE::GetProcAddress(lib, #name); if (name == null) { NATIVE::MessageBoxW(null, L"Cannot load function '" L#name L"' from library '" L#lib L"'", L"See++ Error", 0x10); return false; }
 	#define LoadFuncAlias(name, fnName, lib) name = (name##_t)NATIVE::GetProcAddress(lib, fnName); if (name == null) { NATIVE::MessageBoxW(null, L"Cannot load function '" L#name L"' from library '" L#lib L"'", L"See++ Error", 0x10); return false; }
-	bool InitWindows()
+	_Return_type_success_(true) bool InitWindows()
 	{
 		LoadLib(Kernel32);
 		LoadFunc(ExitProcess, Kernel32Lib);
@@ -32,6 +32,9 @@ namespace Windows
 
 		LoadFuncAlias(CreateWindow, "CreateWindowExW", User32Lib);
 		LoadFuncAlias(SetWindowVisible, "ShowWindow", User32Lib);
+		LoadFuncAlias(GetMessage, "GetMessageW", User32Lib);
+		LoadFunc(TranslateMessage, User32Lib);
+		LoadFuncAlias(DispatchMessage, "DispatchMessageW", User32Lib);
 
 		return true;
 	}

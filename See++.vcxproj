@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Windows\WindowNotifications.h" />
     <ClInclude Include="src\Windows\Windows.h" />
     <ClInclude Include="src\Windows\WindowsImp.h" />
     <ClInclude Include="src\Windows\WindowStyles.h" />
