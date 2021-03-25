@@ -12,7 +12,7 @@ namespace Windows
 	Module Kernel32Lib;
 	Module User32Lib;
 
-	#define ImportFunc(name, ret, ...) using name##_t = ret (__stdcall *)(##__VA_ARGS__); name##_t name
+	#define ImportFunc(name, ret, ...) name##_t name
 	#include "Windows/WindowsImp.h"
 	#undef ImportFunc
 
@@ -22,7 +22,7 @@ namespace Windows
 	bool InitWindows()
 	{
 		LoadLib(Kernel32);
-		LoadFunc(ExitProccess, Kernel32Lib);
+		LoadFunc(ExitProcess, Kernel32Lib);
 		
 		LoadLib(User32);
 		LoadFuncAlias(MessageBox, "MessageBoxW", User32Lib);
