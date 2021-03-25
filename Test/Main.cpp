@@ -6,4 +6,5 @@ int main()
 {
 	Windows::InitWindows();
 	Windows::MessageBox(null, L"This is a test", L"Test!", 0);
+	Windows::ExitProcess(69);
 }
