@@ -51,6 +51,7 @@ namespace Windows
 	extern Module Kernel32Lib;
 	extern Module User32Lib;
 
+	#include "Windows/WindowStyles.h"
 	#include "Windows/WindowsImp.h"
 
 	bool InitWindows();

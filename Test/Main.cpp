@@ -14,7 +14,7 @@ int main()
 	myClass.ClassName = L"MyClass";
 	RegisterClass(myClass);
 
-	Window win = CreateWindow(0, L"MyClass", L"Title", 0xCF0000, 0x80000000, 0x80000000, 0x80000000, 0x80000000, null, null, module, null);
+	Window win = CreateWindow(0, L"MyClass", L"Title", WS_OVERLAPPEDWINDOW, 0x80000000, 0x80000000, 0x80000000, 0x80000000, null, null, module, null);
 	SetWindowVisible(win, true);
 
 	MessageBox(null, L"This is a test", L"Test!", 0);

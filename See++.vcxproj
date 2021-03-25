@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="src\Windows\Windows.h" />
     <ClInclude Include="src\Windows\WindowsImp.h" />
+    <ClInclude Include="src\Windows\WindowStyles.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Windows\Windows.cpp" />

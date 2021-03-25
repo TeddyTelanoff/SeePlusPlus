@@ -10,7 +10,7 @@ ImportFunc(GetModule, Module, _In_ CWStr name);
 ImportFunc(RegisterClass, Atom, _In_ const WindowClass &name);
 ImportFunc(RegisterClassPtr, Atom, _In_ const WindowClass *name);
 
-ImportFunc(CreateWindow, Window, _In_ DWord exStyle, _In_ CWStr className, CWStr title, DWord style,
+ImportFunc(CreateWindow, Window, _In_ DWord exStyle, _In_ CWStr className, CWStr title, WindowStyle style,
 	int x, int y, int width, int height, Window parent, Menu menu, Module module, void *params);
 ImportFunc(SetWindowVisible, void, _In_ Window, _In_ bool show);
 
