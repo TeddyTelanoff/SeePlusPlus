@@ -1,10 +1,22 @@
 #include <Windows/Windows.h>
 
-constexpr std::nullptr_t null = 0;
+using namespace Windows;
 
 int main()
 {
-	Windows::InitWindows();
-	Windows::MessageBox(null, L"This is a test", L"Test!", 0);
-	Windows::ExitProcess(69);
+	InitWindows();
+
+	Module module = GetModule(null);
+
+	WindowClass myClass = { sizeof(WindowClass) };
+	myClass.WinProc = DefWinProc;
+	myClass.Module = module;
+	myClass.ClassName = L"MyClass";
+	RegisterClass(myClass);
+
+	Window win = CreateWindow(0, L"MyClass", L"Title", 0xCF0000, 0x80000000, 0x80000000, 0x80000000, 0x80000000, null, null, module, null);
+	SetWindowVisible(win, true);
+
+	MessageBox(null, L"This is a test", L"Test!", 0);
+	ExitProcess(69);
 }

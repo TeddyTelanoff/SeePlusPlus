@@ -14,7 +14,6 @@ namespace Windows
 
 	#define ImportFunc(name, ret, ...) name##_t name
 	#include "Windows/WindowsImp.h"
-	#undef ImportFunc
 
 	#define LoadLib(name) name##Lib = NATIVE::LoadLibraryW(L#name); if (name##Lib == null) { NATIVE::MessageBoxW(null, L"Cannot load library '" L#name L"'", L"See++ Error", 0x10); return false; }
 	#define LoadFunc(name, lib) name = (name##_t)NATIVE::GetProcAddress(lib, #name); if (name == null) { NATIVE::MessageBoxW(null, L"Cannot load function '" L#name L"' from library '" L#lib L"'", L"See++ Error", 0x10); return false; }
@@ -23,9 +22,16 @@ namespace Windows
 	{
 		LoadLib(Kernel32);
 		LoadFunc(ExitProcess, Kernel32Lib);
+		LoadFuncAlias(GetModule, "GetModuleHandleW", Kernel32Lib);
 		
 		LoadLib(User32);
 		LoadFuncAlias(MessageBox, "MessageBoxW", User32Lib);
+		LoadFuncAlias(DefWinProc, "DefWindowProcW", User32Lib);
+		LoadFuncAlias(RegisterClass, "RegisterClassExW", User32Lib);
+		LoadFuncAlias(RegisterClassPtr, "RegisterClassExW", User32Lib);
+
+		LoadFuncAlias(CreateWindow, "CreateWindowExW", User32Lib);
+		LoadFuncAlias(SetWindowVisible, "ShowWindow", User32Lib);
 
 		return true;
 	}
