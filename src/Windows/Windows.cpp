@@ -17,11 +17,13 @@ namespace Windows
 	#undef ImportFunc
 
 	#define LoadLib(name) name##Lib = NATIVE::LoadLibraryW(L#name); if (name##Lib == null) { NATIVE::MessageBoxW(null, L"Cannot load library '" L#name L"'", L"See++ Error", 0x10); return false; }
-	#define LoadFunc(name, lib) name = (name##_t)NATIVE::GetProcAddress(lib, L#name); if (name == null) { NATIVE::MessageBoxW(null, L"Cannot load function '" L#name L"' from library '" L#lib L"'", L"See++ Error", 0x10); return false; }
+	#define LoadFunc(name, lib) name = (name##_t)NATIVE::GetProcAddress(lib, #name); if (name == null) { NATIVE::MessageBoxW(null, L"Cannot load function '" L#name L"' from library '" L#lib L"'", L"See++ Error", 0x10); return false; }
 	#define LoadFuncAlias(name, fnName, lib) name = (name##_t)NATIVE::GetProcAddress(lib, fnName); if (name == null) { NATIVE::MessageBoxW(null, L"Cannot load function '" L#name L"' from library '" L#lib L"'", L"See++ Error", 0x10); return false; }
 	bool InitWindows()
 	{
 		LoadLib(Kernel32);
+		LoadFunc(ExitProccess, Kernel32Lib);
+		
 		LoadLib(User32);
 		LoadFuncAlias(MessageBox, "MessageBoxW", User32Lib);
 
