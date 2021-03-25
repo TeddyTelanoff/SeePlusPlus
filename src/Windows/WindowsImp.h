@@ -6,7 +6,7 @@ namespace Windows
 {
 	ImportFunc(MessageBox, int, _In_opt_ Window, _In_ CWStr text, _In_ CWStr title, _In_ uint ty);
 	ImportFunc(ExitProcess, void, _In_ int exitCode);
-	ImportFunc(DefWinProc, Result, _In_ Window, _In_ uint msg, _In_ WParam wParam, _In_ LParam lParam);
+	ImportFunc(DefWinProc, Result, _In_ Window, _In_ WindowNotification msg, _In_ WParam wParam, _In_ LParam lParam);
 	ImportFunc(GetModule, Module, _In_ CWStr name);
 	ImportFunc(RegisterClass, Atom, _In_ const WindowClass &name);
 	ImportFunc(RegisterClassPtr, Atom, _In_ const WindowClass *name);
@@ -18,6 +18,8 @@ namespace Windows
 	ImportFunc(GetMessage, bool, _In_ WinMessage *msg, _In_ Window, _In_ uint msgFilterMin, _In_ uint msgFilterMax);
 	ImportFunc(TranslateMessage, bool, _In_ const WinMessage &msg);
 	ImportFunc(DispatchMessage, bool, _In_ const WinMessage &msg);
+
+	ImportFunc(PostQuitMessage, void, _In_ int exitCode);
 }
 
 #undef ImportFunc

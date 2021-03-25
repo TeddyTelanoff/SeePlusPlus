@@ -36,6 +36,8 @@ namespace Windows
 		LoadFunc(TranslateMessage, User32Lib);
 		LoadFuncAlias(DispatchMessage, "DispatchMessageW", User32Lib);
 
+		LoadFunc(PostQuitMessage, User32Lib);
+
 		return true;
 	}
 	#undef LoadLib

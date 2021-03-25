@@ -31,7 +31,8 @@ namespace Windows
 
 	using Atom = unsigned __int16;
 
-	using WinProc_t = void(__stdcall *)(_In_ Window win, _In_ uint msg, _In_ WParam wParam, _In_ LParam lParam);
+	enum WindowNotification: unsigned __int16;
+	using WinProc_t = void(__stdcall *)(_In_ Window, _In_ WindowNotification msg, _In_ WParam wParam, _In_ LParam lParam);
 	using WindowClass = struct WindowClass
 	{
 		uint Size;
@@ -70,6 +71,6 @@ namespace Windows
 	_Return_type_success_(true) bool InitWindows();
 }
 
-#include "Windows/WindowStyles.h"
 #include "Windows/WindowNotifications.h"
+#include "Windows/WindowStyles.h"
 #include "Windows/WindowsImp.h"
