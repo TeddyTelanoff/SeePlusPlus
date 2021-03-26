@@ -12,6 +12,8 @@ namespace Windows
 	HANDLE(Menu);
 	HANDLE(Module);
 	HANDLE(Window);
+	HANDLE(DC);
+	HANDLE(DeviceContext);
 	#undef HANDLE
 
 	using Str = char *;
@@ -29,10 +31,15 @@ namespace Windows
 	using WParam = uint *;
 	using Result = uint *;
 
+	using Bool = enum Bool
+	{
+		False = false,
+		True = !False,
+	};
 	using Atom = unsigned __int16;
 
-	enum WindowNotification: unsigned __int16;
-	using WinProc_t = void(__stdcall *)(_In_ Window, _In_ WindowNotification msg, _In_ WParam wParam, _In_ LParam lParam);
+	enum WindowsMessage: unsigned __int16;
+	using WinProc_t = void(__stdcall *)(_In_ Window, _In_ WindowsMessage msg, _In_ WParam wParam, _In_ LParam lParam);
 	using WindowClass = struct WindowClass
 	{
 		uint Size;
@@ -52,6 +59,9 @@ namespace Windows
 	using Point = struct Point
 	{ long X, Y; };
 
+	using Rect = struct Rect
+	{ long Left, Top, Right, Bottom; };
+
 	using WinMessage = struct WinMessage
 	{
 		Window Win;
@@ -63,14 +73,26 @@ namespace Windows
 		DWord Private;
 	};
 
+	using Paint = struct Paint
+	{
+		DC DC;
+		Bool Erase;
+		Rect Viewport;
+		Bool Restore;
+		Bool IncUpdate;
+		Bool RGBReserved[32];
+	};
+
 	constexpr std::nullptr_t null = 0;
 
 	extern Module Kernel32Lib;
 	extern Module User32Lib;
+	extern Module GDI32Lib;
 
 	_Return_type_success_(true) bool InitWindows();
 }
 
-#include "Windows/WindowNotifications.h"
-#include "Windows/WindowStyles.h"
+#include "Windows/WindowsConstants.h"
+#include "Windows/WindowsMessages.h"
+#include "Windows/WindowsStyles.h"
 #include "Windows/WindowsImp.h"

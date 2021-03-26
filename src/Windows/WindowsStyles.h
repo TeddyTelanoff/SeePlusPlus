@@ -2,7 +2,7 @@
 
 namespace Windows
 {
-	enum WindowStyle
+	enum WindowsStyle
 	{
 		WS_BORDER = 0x00800000L,
 		WS_CAPTION = 0x00C00000L,

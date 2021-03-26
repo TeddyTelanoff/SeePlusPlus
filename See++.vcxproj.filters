@@ -21,10 +21,13 @@
     <ClInclude Include="src\Windows\WindowsImp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Windows\WindowStyles.h">
+    <ClInclude Include="src\Windows\WindowsStyles.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Windows\WindowNotifications.h">
+    <ClInclude Include="src\Windows\WindowsMessages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Windows\WindowsConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

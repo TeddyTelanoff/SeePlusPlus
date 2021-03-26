@@ -2,10 +2,18 @@
 
 using namespace Windows;
 
-Result MyWinProc(Window win, WindowNotification msg, WParam wParam, LParam lParam)
+Result __stdcall MyWinProc(Window win, WindowsMessage msg, WParam wParam, LParam lParam)
 {
 	switch (msg)
 	{
+	case WM_PAINT:
+	{
+		Paint paint;
+		DC dc = BeginPaint(win, &paint);
+		FillRect(dc, paint.Viewport, (Brush)6);
+		EndPaint(win, paint);
+		return 0;
+	}
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
@@ -27,10 +35,10 @@ int main()
 	myClass.ClassName = L"MyClass";
 	RegisterClass(myClass);
 
-	Window win = CreateWindow(0, L"MyClass", L"Title", WS_OVERLAPPEDWINDOW, 0x80000000, 0x80000000, 0x80000000, 0x80000000, null, null, module, null);
+	Window win = CreateWindow(0, L"MyClass", L"Title", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 640, 480, null, null, module, null);
 	if (win == null)
 		ExitProcess(1);
-	SetWindowVisible(win, true);
+	SetWindowVisible(win, True);
 
 	WinMessage msg;
 	while (GetMessage(&msg, null, 0, 0))

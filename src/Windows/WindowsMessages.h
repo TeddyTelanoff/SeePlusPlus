@@ -2,7 +2,7 @@
 
 namespace Windows
 {
-	enum WindowNotification: unsigned __int16
+	enum WindowsMessage: unsigned __int16
 	{
 		WM_ACTIVATEAPP = 0x0006,
 		WM_CANCELMODE = 0x001F,
@@ -26,6 +26,7 @@ namespace Windows
 		WM_NCCREATE = 0x0081,
 		WM_NCDESTROY = 0x0082,
 		WM_NULL = 0x0000,
+		WM_PAINT = 0x000F,
 		WM_QUERYDRAGICON = 0x0037,
 		WM_QUERYOPEN = 0x0013,
 		WM_QUIT = 0x0012,

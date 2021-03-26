@@ -14,6 +14,7 @@ namespace Windows
 
 	Module Kernel32Lib;
 	Module User32Lib;
+	Module GDI32Lib;
 
 	#define LoadLib(name) name##Lib = NATIVE::LoadLibraryW(L#name); if (name##Lib == null) { NATIVE::MessageBoxW(null, L"Cannot load library '" L#name L"'", L"See++ Error", 0x10); return false; }
 	#define LoadFunc(name, lib) name = (name##_t)NATIVE::GetProcAddress(lib, #name); if (name == null) { NATIVE::MessageBoxW(null, L"Cannot load function '" L#name L"' from library '" L#lib L"'", L"See++ Error", 0x10); return false; }
@@ -37,6 +38,12 @@ namespace Windows
 		LoadFuncAlias(DispatchMessage, "DispatchMessageW", User32Lib);
 
 		LoadFunc(PostQuitMessage, User32Lib);
+
+		LoadFunc(BeginPaint, User32Lib);
+		LoadFunc(EndPaint, User32Lib);
+		LoadFunc(FillRect, User32Lib);
+
+		LoadLib(GDI32);
 
 		return true;
 	}
