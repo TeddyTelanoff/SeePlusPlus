@@ -23,8 +23,10 @@ namespace Windows
 
 	ImportFunc(BeginPaint, DC, _In_ Window, _Out_ Paint *);
 	ImportFunc(EndPaint, Bool, _In_ Window, _In_ const Paint &);
-
 	ImportFunc(FillRect, int, _In_ DC, _In_ const Rect &, _In_ Brush);
+
+	ImportFunc(DeleteBrush, Bool, _In_ Brush);
+	ImportFunc(CreateSolidBrush, Brush, _In_ Color);
 }
 
 #undef ImportFunc

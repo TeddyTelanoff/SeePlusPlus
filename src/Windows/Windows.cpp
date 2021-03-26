@@ -44,6 +44,8 @@ namespace Windows
 		LoadFunc(FillRect, User32Lib);
 
 		LoadLib(GDI32);
+		LoadFunc(CreateSolidBrush, GDI32Lib);
+		LoadFuncAlias(DeleteBrush, "DeleteObject", GDI32Lib);
 
 		return true;
 	}

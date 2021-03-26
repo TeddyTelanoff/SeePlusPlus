@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Windows\WindowsColors.h" />
     <ClInclude Include="src\Windows\WindowsMessages.h" />
     <ClInclude Include="src\Windows\Windows.h" />
     <ClInclude Include="src\Windows\WindowsConstants.h" />

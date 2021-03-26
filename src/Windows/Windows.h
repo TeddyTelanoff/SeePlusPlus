@@ -31,6 +31,8 @@ namespace Windows
 	using WParam = uint *;
 	using Result = uint *;
 
+	using Color = DWord;
+
 	using Bool = enum Bool
 	{
 		False = false,
@@ -95,4 +97,5 @@ namespace Windows
 #include "Windows/WindowsConstants.h"
 #include "Windows/WindowsMessages.h"
 #include "Windows/WindowsStyles.h"
+#include "Windows/WindowsColors.h"
 #include "Windows/WindowsImp.h"

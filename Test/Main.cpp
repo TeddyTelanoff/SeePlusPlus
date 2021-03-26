@@ -10,7 +10,9 @@ Result __stdcall MyWinProc(Window win, WindowsMessage msg, WParam wParam, LParam
 	{
 		Paint paint;
 		DC dc = BeginPaint(win, &paint);
-		FillRect(dc, paint.Viewport, (Brush)6);
+		Brush br = CreateSolidBrush(0x404040);
+		FillRect(dc, paint.Viewport, br);
+		DeleteBrush(br);
 		EndPaint(win, paint);
 		return 0;
 	}
@@ -46,7 +48,4 @@ int main()
 		TranslateMessage(msg);
 		DispatchMessage(msg);
 	}
-
-	MessageBox(null, L"This is a test", L"Test!", 0);
-	ExitProcess(0);
 }
