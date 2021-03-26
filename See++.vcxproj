@@ -147,12 +147,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Windows\WindowsColors.h" />
-    <ClInclude Include="src\Windows\WindowsMessages.h" />
+    <ClInclude Include="src\Windows\Colors.h" />
+    <ClInclude Include="src\Windows\Messages.h" />
     <ClInclude Include="src\Windows\Windows.h" />
-    <ClInclude Include="src\Windows\WindowsConstants.h" />
-    <ClInclude Include="src\Windows\WindowsImp.h" />
-    <ClInclude Include="src\Windows\WindowsStyles.h" />
+    <ClInclude Include="src\Windows\Constants.h" />
+    <ClInclude Include="src\Windows\Imp.h" />
+    <ClInclude Include="src\Windows\Styles.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Windows\Windows.cpp" />

@@ -94,8 +94,8 @@ namespace Windows
 	_Return_type_success_(true) bool InitWindows();
 }
 
-#include "Windows/WindowsConstants.h"
-#include "Windows/WindowsMessages.h"
-#include "Windows/WindowsStyles.h"
-#include "Windows/WindowsColors.h"
-#include "Windows/WindowsImp.h"
+#include "Windows/Constants.h"
+#include "Windows/Messages.h"
+#include "Windows/Styles.h"
+#include "Windows/Colors.h"
+#include "Windows/Imp.h"

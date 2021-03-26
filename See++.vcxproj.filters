@@ -18,19 +18,19 @@
     <ClInclude Include="src\Windows\Windows.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Windows\WindowsImp.h">
+    <ClInclude Include="src\Windows\Imp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Windows\WindowsStyles.h">
+    <ClInclude Include="src\Windows\Styles.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Windows\WindowsMessages.h">
+    <ClInclude Include="src\Windows\Messages.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Windows\WindowsConstants.h">
+    <ClInclude Include="src\Windows\Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Windows\WindowsColors.h">
+    <ClInclude Include="src\Windows\Colors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
